@@ -60,7 +60,11 @@ cervicalThoracicRemoval = function(text,
   # return decimal using regex
   removalTextSentences = stringr::str_replace_all(removalTextSentences, "(?<=\\d)\\^(?=\\d)", ".")
   text = stringr::str_replace_all(text, "(?<=\\d)\\^(?=\\d)", ".")
-
+  
+  if(text == "") {
+    text = " "
+  }
+  
   # return the two strings: processed string (lumbar-only text) then removal string (text that has been removed)
   return(c(text, removalTextSentences))
 }
